@@ -34,7 +34,9 @@
                   {
                     "id": 7,
                     "name": "aadhar.pdf",
-                    "type": "file"
+                    "type": "file",
+                    "file_size": "1230",
+                    "owner": "iamdebobrota"
                   }
                 ]
               }
@@ -49,9 +51,39 @@
         "children": []
       },
       {
-        "id": 8,
+        "id": 123,
         "name": "Resume.pdf",
-        "type": "file"
+        "type": "file",
+        "file_size": "667788",
+        "owner": "iamdebobrota"
+      },
+      {
+        "id": 12345,
+        "name": "aadharcard.pdf",
+        "type": "file",
+        "file_size": "990",
+        "owner": "debu12"
+      },
+      {
+        "id": 112,
+        "name": "cv.jpg",
+        "type": "file",
+        "file_size": "665",
+        "owner": "debu"
+      },
+      {
+        "id": 2267,
+        "name": "image12.pdf",
+        "type": "file",
+        "file_size": "667788",
+        "owner": "iamdebobrota"
+      },
+      {
+        "id": 998,
+        "name": "photo.pdf",
+        "type": "file",
+        "file_size": "667788",
+        "owner": "iamdebobrota"
       }
     ]
   }

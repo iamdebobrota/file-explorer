@@ -5,7 +5,7 @@ import Image from "next/image";
 import Content from "../components/content";
 import FolderPage from "../components/folderPage";
 import FilePage from "../components/filePage";
-import Navbar from "../components/navbar";
+import Navbar from "../components/common/navbar";
 
 export interface Item {
   id: number;
@@ -38,11 +38,10 @@ const ItemPage = () => {
     ? findItemById(currentItem, parseInt(id as string))
     : undefined;
 
-    // console.log(selectedItem)
-    
+  // console.log(selectedItem)
+
   return (
     <div className="mx-8 my-6">
-     <Navbar />
       <div>
         {selectedItem ? (
           <div>

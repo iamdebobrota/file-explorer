@@ -6,10 +6,8 @@ import { useState } from "react";
 const Sidebar = () => {
   const router = usePathname();
 
-  // State to track the current active link
   const [activeLink, setActiveLink] = useState(router);
 
-  // Function to handle link click and update active link state
   const handleLinkClick = (link: string) => {
     setActiveLink(link);
   };

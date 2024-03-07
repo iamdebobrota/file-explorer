@@ -4,14 +4,10 @@ import { useRouter } from "next/navigation";
 import data from "../../../db.json";
 import Content from "../components/content";
 import Navbar from "../components/common/navbar";
+import { FolderItem } from "../types/fileType";
 
-interface FolderItem {
-  id: string;
-  name: string;
-  type: string;
-}
 
-interface FileItem extends FolderItem {
+export interface FileItem extends FolderItem {
   file_size: number;
   owner: string;
   children?: FolderItem[] | FolderItem;
@@ -27,7 +23,7 @@ const HomeComponent: React.FC = () => {
       (el) => el.type.toLowerCase() == payload && el
       );
     let newFiltered = folders.filter((el) => (el ? el : null));
-    
+     //@ts-ignore
     setSortedFolders(newFiltered);;
   };
  
@@ -37,6 +33,7 @@ const HomeComponent: React.FC = () => {
     const sorted = [...folderStructure.children].sort((a, b) =>
       a.name.localeCompare(b.name)
     );
+    //@ts-ignore
     setSortedFolders(sorted);
   }, []);
 

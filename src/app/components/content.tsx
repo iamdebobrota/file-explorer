@@ -1,8 +1,18 @@
 import React from "react";
 import Folder from "./folder";
 import File from "./file";
+import { FileItem } from "../home/page";
+import { FolderItem } from "../types/fileType";
 
-const Content = ({ sortedFolders, filterText, handleClick }: any) => {
+const Content = ({
+  sortedFolders,
+  filterText,
+  handleClick,
+}: {
+  sortedFolders: FileItem[];
+  filterText: string;
+  handleClick: (folder: FolderItem) => void;
+}) => {
   return (
     <div>
       <ul className="text-xl w-[60%] h-[74dvh] bg-gray-50 pt-4">

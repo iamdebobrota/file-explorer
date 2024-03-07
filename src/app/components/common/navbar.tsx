@@ -1,5 +1,6 @@
 import { Item } from "@/app/[id]/page";
-import React, { useEffect, useState } from "react";
+import { FileItem } from "@/app/home/page";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { LuFileSpreadsheet } from "react-icons/lu";
 
 const Navbar = ({
@@ -7,21 +8,25 @@ const Navbar = ({
   handleFilterChange,
   sortedFolders,
   setSortedFolders,
-  filteredFolders
-}: any) => {
+  filteredFolders,
+}: {
+  filterText: string;
+  handleFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  sortedFolders: FileItem[];
+  setSortedFolders: Dispatch<SetStateAction<FileItem[]>>;
+  filteredFolders: (payload: string) => void;
+}) => {
   const [isSorted, setIsSorted] = useState(false);
   const [showFiles, setShowFiles] = useState("file");
 
-  const handleFileFilter = (payload : string) => {
+  const handleFileFilter = (payload: string) => {
     setShowFiles((prev) => payload);
-    filteredFolders(payload)
+    filteredFolders(payload);
   };
-
 
   const handleResetFilter = () => {
     setShowFiles((prev) => "file");
   };
-
 
   return (
     <>
@@ -32,17 +37,20 @@ const Navbar = ({
           value={filterText}
           onChange={handleFilterChange}
           className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-        /> 
+        />
         <div className="flex ml-4">
           <div
             onClick={() => {
               handleFileFilter("file");
             }}
             className={`p-1 px-4 flex items-center gap-2 border border-gray-700 ${
-              showFiles=="file" ? "bg-blue-100" : ""
+              showFiles == "file" ? "bg-blue-100" : ""
             } rounded-l-xl cursor-pointer`}>
             <LuFileSpreadsheet className="text-xl" />
-            <p className={`font-bold ${showFiles=="file" ? "" : "text-gray-400"}`}>
+            <p
+              className={`font-bold ${
+                showFiles == "file" ? "" : "text-gray-400"
+              }`}>
               Files
             </p>
           </div>
@@ -51,10 +59,13 @@ const Navbar = ({
               handleFileFilter("folder");
             }}
             className={`p-1 px-4 flex items-center gap-2 border border-gray-700 ${
-              showFiles=="folder" ? "bg-blue-100" : ""
+              showFiles == "folder" ? "bg-blue-100" : ""
             } rounded-r-xl cursor-pointer`}>
             <LuFileSpreadsheet className="text-xl" />
-            <p className={`font-bold ${showFiles=="folder" ? "" : "text-gray-400"}`}>
+            <p
+              className={`font-bold ${
+                showFiles == "folder" ? "" : "text-gray-400"
+              }`}>
               Folder
             </p>
           </div>

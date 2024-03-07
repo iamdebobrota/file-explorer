@@ -8,3 +8,7 @@ features:
 
 - 
 
+
+<h4>Tech Stacks: </h4>
+- Next JS
+- Tailwind CSS
